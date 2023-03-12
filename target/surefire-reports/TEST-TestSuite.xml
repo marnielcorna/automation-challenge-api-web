@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="0.672" tests="3" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\BlazeChallenge\target\test-classes;C:\BlazeChallenge\target\classes;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-java\7.11.1\cucumber-java-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-core\7.11.1\cucumber-core-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-gherkin\7.11.1\cucumber-gherkin-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.11.1\cucumber-gherkin-messages-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\gherkin\26.0.3\gherkin-26.0.3.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\messages\21.0.1\messages-21.0.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\tag-expressions\5.0.1\tag-expressions-5.0.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-expressions\16.1.2\cucumber-expressions-16.1.2.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\datatable\7.11.1\datatable-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-plugin\7.11.1\cucumber-plugin-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\docstring\7.11.1\docstring-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\html-formatter\20.2.1\html-formatter-20.2.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\junit-xml-formatter\0.1.0\junit-xml-formatter-0.1.0.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\ci-environment\9.1.0\ci-environment-9.1.0.jar;C:\Users\MARCOS\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-testng\7.11.1\cucumber-testng-7.11.1.jar;C:\Users\MARCOS\.m2\repository\org\testng\testng\7.7.1\testng-7.7.1.jar;C:\Users\MARCOS\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\MARCOS\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\MARCOS\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\MARCOS\AppData\Local\Temp\surefire8357632051613325660\surefirebooter-20230312165004953_3.jar C:\Users\MARCOS\AppData\Local\Temp\surefire8357632051613325660 2023-03-12T16-50-04_686-jvmRun1 surefire-20230312165004953_1tmp surefire_0-20230312165004953_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\BlazeChallenge\target\test-classes;C:\BlazeChallenge\target\classes;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-java\7.11.1\cucumber-java-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-core\7.11.1\cucumber-core-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-gherkin\7.11.1\cucumber-gherkin-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.11.1\cucumber-gherkin-messages-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\gherkin\26.0.3\gherkin-26.0.3.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\messages\21.0.1\messages-21.0.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\tag-expressions\5.0.1\tag-expressions-5.0.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-expressions\16.1.2\cucumber-expressions-16.1.2.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\datatable\7.11.1\datatable-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-plugin\7.11.1\cucumber-plugin-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\docstring\7.11.1\docstring-7.11.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\html-formatter\20.2.1\html-formatter-20.2.1.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\junit-xml-formatter\0.1.0\junit-xml-formatter-0.1.0.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\ci-environment\9.1.0\ci-environment-9.1.0.jar;C:\Users\MARCOS\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\MARCOS\.m2\repository\io\cucumber\cucumber-testng\7.11.1\cucumber-testng-7.11.1.jar;C:\Users\MARCOS\.m2\repository\org\testng\testng\7.7.1\testng-7.7.1.jar;C:\Users\MARCOS\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\MARCOS\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\MARCOS\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\MARCOS"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files (x86)\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\BlazeChallenge"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\MARCOS\AppData\Local\Temp\surefire8357632051613325660\surefirebooter-20230312165004953_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="MARCOS"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\MARCOS\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\MARCOS\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="cucumber.filter.tags" value="@web_test"/>
+    <property name="user.dir" value="C:\BlazeChallenge"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\MARCOS\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\AutoFirma\AutoFirma;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\MARCOS\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\MARCOS\AppData\Local\GitHubDesktop\bin;C:\Users\MARCOS\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\MARCOS\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\heroku\bin;C:\Users\MARCOS\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files (x86)\Java\jdk-19\bin;C:\Program Files (x86)\Java\apache-maven-3.9.0\bin;C:\Gradle\gradle-7.4.2\bin;C:\Users\MARCOS\.dotnet\tools;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="runScenario[&quot;Add product to cart&quot;, &quot;UI Test&quot;](1)" classname="Runners.Run" time="0.062">
+    <system-out><![CDATA[Access the application..
+given the: HomePage
+Navigate to: LaptopPage
+Navigate to: Sony vaio i5Page
+Click On: Add to cartbutton
+The product...
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="runScenario[&quot;Add product to cart&quot;, &quot;UI Test&quot;](2)" classname="Runners.Run" time="0.008">
+    <system-out><![CDATA[Access the application..
+given the: HomePage
+Navigate to: LaptopPage
+Navigate to: Dell i7 8gbPage
+Click On: Add to cartbutton
+The product...
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Place order&quot;, &quot;UI Test&quot;](3)" classname="Runners.Run" time="0.005">
+    <system-out><![CDATA[Access the application..
+given the: CartPage
+Click On: place orderbutton
+Click On: OKbutton
+The system..
+]]></system-out>
+  </testcase>
+</testsuite>
