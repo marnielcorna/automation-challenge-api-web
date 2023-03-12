@@ -7,7 +7,7 @@ import reporting.Reporting;
 @CucumberOptions(
         features = {"src/test/resources/features/api/apitest.feature","src/test/resources/features/web/webtest.feature"},
         glue = {"StepDefinitions"},
-        tags = "@dos",
+        tags = "@get_request",
         plugin = {"json:target/cucumber-json-report.json"}
 )
 public class Run extends AbstractTestNGCucumberTests {
