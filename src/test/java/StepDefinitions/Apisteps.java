@@ -1,5 +1,4 @@
 package StepDefinitions;
-
 import io.cucumber.datatable.DataTable;
 import io.restassured.RestAssured;
 import io.cucumber.java.en.And;
@@ -8,12 +7,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import pageobjects.Api;
-
-import java.util.List;
 import java.util.Map;
-
 import static org.testng.Assert.assertEquals;
+import static pageobjects.Api.*;
+
 
 public class Apisteps {
 
@@ -24,11 +21,12 @@ public class Apisteps {
     @Given("a pet status of {string}")
     public void givenAPetStatus(String status) {
         request = RestAssured.given().param("status", status);
+
     }
 
-    @Given("a pet object")
-    public void givenAPetObject() {
-        System.out.println("object");
+    @Given("a pet with the following data:")
+    public void givenAPetWithJsonData() {
+
     }
 
     @Given("a pet of id {string}")
@@ -37,25 +35,28 @@ public class Apisteps {
     }
 
     @When("the {string} is called to find pets by status")
-    public void theApiIsCalledToFindPetsByStatus(String api, String action) {
+    public void theApiIsCalledToFindPetsByStatus(String api) {
         response = request.when().get(api);
     }
 
-    @When("the api is called to {string} a pet with the following data:")
-    public void theApiIsCalledToAddAPetWithTheTheFollowingData(String request) {
+    @When("the {string} is called to {string} a pet with the following data:")
+    public void apiCalledToAddPetWithData(String api, String request, DataTable table) {
+//        request = RestAssured.given().param("status", status);
+
+        System.out.println("api: " + api);
         System.out.println("Type of request: " + request);
+        System.out.println("Table: " + table);
+
     }
 
     @And("the response body should contain the following attributes for each pet:")
-    public void responseBodyContainsAttributes(DataTable attributes) {
-        List<Map<String, String>> rows = attributes.asMaps(String.class, String.class);
-        for (Map<String, String> row : rows) {
-            String attribute = row.get("attribute");
-            String value = row.get("value");
-            // Aquí puedes verificar que el cuerpo de la respuesta contiene los atributos y valores esperados para cada pet
-        }
+    public void responseBodyContainsAttributes(DataTable table) {
+        Map<String, String> result = getKeyValuesFromTable(table);
+        String attribute = result.get("attribute");
+        String value = result.get("value");
+        String jsonStr = response.getBody().asString();
+        assertKeyValuesFromResponse(jsonStr, attribute, value);
     }
-
 
     @And("the response body should contain the following attributes:")
     public void theResponseBodyShouldContainTheFollowingAttributes() {
