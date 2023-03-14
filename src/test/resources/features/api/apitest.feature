@@ -21,13 +21,16 @@ Feature: API testing
       | status    | available  |
       | name	  | Thor       |
 
-  @update_request @dos
-  Scenario:	Update pet status to 'sold'
-    Given a pet status of 'available'
-    When the api is called to 'update' a pet with the following data:
-#      | "status" | "sold"      |
-    Then the response should be 200
-    And the response body should contain the following attributes:
+#  @update_request @dos
+#  Scenario:	Update pet status to 'sold'
+#    Given a pet status of 'available'
+#    * a pet with the following data:
+#      | object    | {"id":0,"category":{"id":0,"name":"string"},"name":"Thor","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"sold"} |
+#
+#    When the 'https://petstore.swagger.io/v2/pet' is called to update a pet with the following data:
+#      | status   | sold         |
+#    Then the response should be 200
+#    And the response body should contain the following attributes:
 #      | "status" | "sold"      |
 ##
 #  @delete_request @dos

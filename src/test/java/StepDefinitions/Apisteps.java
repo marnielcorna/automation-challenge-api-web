@@ -75,16 +75,14 @@ public class Apisteps {
         assertEquals(expectedName, jsonName);
     }
 
+    @When("the {string} is called to {string} a pet with the following data:")
+    public void requestUpdateToApiWithABody(int arg0) {
+
+    }
+
     @Then("the response should be {int}")
     public void theResponseShouldBeOK(int status) {
         assertEquals(this.response.getStatusCode(), 200);
     }
-
-
-    @Given("hello")
-    public void hello() {
-        System.out.println("Hola");
-    }
-
 
 }
