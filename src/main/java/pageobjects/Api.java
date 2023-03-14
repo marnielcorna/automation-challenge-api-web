@@ -1,17 +1,8 @@
 package pageobjects;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.JsonNode;
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.datatable.DataTable;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
