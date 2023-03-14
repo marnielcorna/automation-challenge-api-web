@@ -4,6 +4,9 @@ import com.google.gson.JsonElement;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.JsonNode;
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.DataTable;
 
 import java.util.HashMap;
@@ -31,18 +34,29 @@ public class Api {
         }
     }
 
-    public static Map<String, String> getKeyValuesFromTable(DataTable attributes) {
+    public static Map<String, String> getKeyValuesFromTable(DataTable attributes, String attributeKey, String attributeValue) {
         List<Map<String, String>> rows = attributes.asMaps(String.class, String.class);
         String value = null;
         String attribute = null;
         for (Map<String, String> row : rows) {
-            attribute = row.get("attribute");
-            value = row.get("value");
+            attribute = row.get(attributeKey);
+            value = row.get(attributeValue);
         }
         Map<String, String> result = new HashMap<>();
-        result.put("attribute", attribute);
-        result.put("value", value);
+        result.put(attributeKey, attribute);
+        result.put(attributeValue, value);
         return result;
     }
+
+    public static void toJson(String jsonString) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode jsonNode = objectMapper.readTree(jsonString);
+            System.out.println(jsonNode);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

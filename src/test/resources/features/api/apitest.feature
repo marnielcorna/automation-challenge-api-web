@@ -7,20 +7,21 @@ Feature: API testing
     When the 'https://petstore.swagger.io/v2/pet/findByStatus?status=available' is called to find pets by status
     Then the response should be 200
     And the response body should contain the following attributes for each pet:
-      | attribute| value     |
-      | status   | available |
+      | attribute| value       |
+      | status   | available   |
 
   @post_request
   Scenario: Post new pet with status of available
     Given a pet with the following data:
-    When the 'https://petstore.swagger.io/v2/pet' is called to 'post' a pet with the following data:
-      | attribute| value       |
-      | name	 | Thor        |
-      | status   | available   |
-#    Then the response should be 200
-#    And the response body should contain the following attributes:
-#      | "name"	 | "Thor"      |
-#      | "status" | "available" |
+      | attribute1| value1       |
+      | object    | {"id": 0,"category": {"id": 0,"name": "string"},"name": "Thor Odin-son","photoUrls": ["string"],"tags": [{"id": 0,"name": "string"}],"status": "available"} |
+
+    When the 'https://petstore.swagger.io/v2/pet' is called to 'post' a pet
+    Then the response should be 200
+    And the response body should contain the following attributes:
+      | attribute2| value2     |
+      | status    | available  |
+      | name	  | Thor       |
 
 #
 #  @update_request @dos
