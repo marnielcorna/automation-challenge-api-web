@@ -1,4 +1,6 @@
 package StepDefinitions;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 import io.cucumber.datatable.DataTable;
@@ -29,10 +31,8 @@ public class Apisteps {
 
     @Given("a pet with the following data:")
     public void givenAPetWithJsonData(DataTable table) {
-        System.out.println("TABLA DEL ATTRIBUTE1"+ table);
-        Map<String, String> result = getKeyValuesFromTable(table, "attribute1", "value1");
-        String value = result.get("value1");
-
+        Map<String, String> result = table.asMap(String.class, String.class);
+        String value = result.get("object");
         this.request = RestAssured.given().contentType("application/json").body(value);
     }
 
@@ -53,24 +53,26 @@ public class Apisteps {
 
     @And("the response body should contain the following attributes for each pet:")
     public void responseBodyContainsAttributes(DataTable table) {
-        System.out.println("TABLA DEL ATTRIBUTE"+ table);
-        Map<String, String> result = getKeyValuesFromTable(table, "attribute", "value");
-        String attribute = result.get("attribute");
-        String value = result.get("value");
+        Map<String, String> expectedAttributes = table.asMap(String.class, String.class);
+        String expectedStatus = expectedAttributes.get("status");
         String jsonStr = response.getBody().asString();
-        assertKeyValuesFromResponse(jsonStr, attribute, value);
+        assertKeyValueFromResponse(jsonStr, "status", expectedStatus);
     }
 
     @And("the response body should contain the following attributes:")
     public void reponseShouldContainThoseAttributes(DataTable tableTwo) {
-        System.out.println("TABLA DEL ATTRIBUTE2"+ tableTwo);
-        Map<String, String> tablePost = getKeyValuesFromTable(tableTwo, "attribute2", "value2");
-        System.out.println("EL TABLE POST ES:------"+tablePost);
-        String attribute = tablePost.get("attribute2");
-        String value = tablePost.get("value2");
-        String jsonStr = response.getBody().asString();
+        Map<String, String> expectedAttributes = tableTwo.asMap(String.class, String.class);
+        String expectedStatus = expectedAttributes.get("status");
+        String expectedName = expectedAttributes.get("name");
 
-//        assertKeyValuesFromResponse(jsonStr, attribute, value);
+        String jsonStr = response.getBody().asString();
+        JsonObject jsonObject = new JsonParser().parse(jsonStr).getAsJsonObject();
+
+        String jsonStatus = jsonObject.get("status").getAsString();
+        String jsonName = jsonObject.get("name").getAsString();
+
+        assertEquals(expectedStatus, jsonStatus);
+        assertEquals(expectedName, jsonName);
     }
 
     @Then("the response should be {int}")
