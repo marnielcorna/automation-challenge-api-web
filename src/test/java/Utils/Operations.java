@@ -28,11 +28,23 @@ public class Operations {
 
         reqspec = new BaseBuilder().placeSpecBuilder();
 
-        if(api.equalsIgnoreCase("PathPet")) {
+        if(api.equalsIgnoreCase("PathForPostPet")) {
             reqspec = RestAssured.given().spec(reqspec).body(BodyPets.addBodyPet());
         }
         response = reqspec.post(resourceAPI.getResource()).then().extract().response();
-//        System.out.println("RESPONSE DE OPERATIONS:" + response.getBody().asString());
+        return response;
+    }
+
+    public Response performPUT(String api, Integer lastIdPet) throws FileNotFoundException {
+        APIResources resourceAPI= APIResources.valueOf(api);
+
+        reqspec = new BaseBuilder().placeSpecBuilder();
+
+        if(api.equalsIgnoreCase("PathForUpdateAPet")) {
+            reqspec = RestAssured.given().spec(reqspec).body(BodyPets.updateAPet(lastIdPet));
+        }
+        response = reqspec.put(resourceAPI.getResource()).then().extract().response();
+        System.out.println("RESPONSE DE OPERATIONS:" + response.getBody().asString());
         return response;
     }
 

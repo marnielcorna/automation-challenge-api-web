@@ -11,31 +11,63 @@ public class BodyPets {
 
         HashMap<String, Object> category = new HashMap<String, Object>();
         category.put("id", 0);
-        category.put("name", "string");
+        category.put("name", "category");
         addpet.put("category", category);
 
-        addpet.put("name", "doggie");
+        addpet.put("name", "LOKI");
 
         ArrayList<String> photoUrls = new ArrayList<String>();
-        photoUrls.add("string");
+        photoUrls.add("Photos");
         addpet.put("photoUrls", photoUrls);
 
         ArrayList<HashMap<String, Object>> tags = new ArrayList<HashMap<String, Object>>();
         HashMap<String, Object> tag = new HashMap<String, Object>();
         tag.put("id", 0);
-        tag.put("name", "string");
+        tag.put("name", "tag");
         tags.add(tag);
         addpet.put("tags", tags);
 
         addpet.put("status", "available");
 
-        System.out.println("ESTE DEBERIA SER NUESTRO OBJETO:::::::::::::::::::"+ addpet);
+        System.out.println("ESTE DEBERIA SER NUESTRO OBJETO:::::::::::::::::::" + addpet);
         return addpet;
+
+
+    }
+    public static HashMap<String, Object> updateAPet(Integer lastIdPet) {
+        HashMap<String, Object> bodyRequest = new HashMap<String, Object>();
+        bodyRequest.put("id", lastIdPet);
+
+        HashMap<String, Object> category = new HashMap<String, Object>();
+        category.put("id", 0);
+        category.put("name", "category");
+        bodyRequest.put("category", category);
+
+        bodyRequest.put("name", "LOKI");
+
+        ArrayList<String> photoUrls = new ArrayList<String>();
+        photoUrls.add("Photos");
+        bodyRequest.put("photoUrls", photoUrls);
+
+        ArrayList<HashMap<String, Object>> tags = new ArrayList<HashMap<String, Object>>();
+        HashMap<String, Object> tag = new HashMap<String, Object>();
+        tag.put("id", 0);
+        tag.put("name", "tag");
+        tags.add(tag);
+        bodyRequest.put("tags", tags);
+
+        bodyRequest.put("status", "sold");
+
+        System.out.println("ESTE DEBERIA SER NUESTRO OBJETO:::::::::::::::::::" + bodyRequest);
+        return bodyRequest;
+
+
+    }
 
 
 //    public static HashMap<String, Object> deletePayload(String placeId) {
 //        HashMap<String, Object> deleteplacemap = new HashMap<String, Object>();
 //        deleteplacemap.put("place_id", placeId);
 //        return deleteplacemap;
-    }
+//        }
 }
