@@ -18,6 +18,7 @@ public class Api {
             if (jsonObject.has(key)) {
                 String actualStatus = jsonObject.get(key).getAsString();
                 assertEquals(actualStatus, value);
+                System.out.println("ASSERTION REALIZADO CORRECTAMENTE.");
             } else {
                 String id = jsonObject.get("id").getAsString();
                 fail("The'" + key + "' doesn't exist in json object.");

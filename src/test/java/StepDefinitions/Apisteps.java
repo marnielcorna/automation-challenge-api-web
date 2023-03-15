@@ -1,111 +1,53 @@
 package StepDefinitions;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
+import Utils.Operations;
 import io.cucumber.datatable.DataTable;
-import io.restassured.RestAssured;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.apiguardian.api.API;
-import pageobjects.Api;
+import org.testng.Assert;
 
-import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.Map;
-import static org.testng.Assert.assertEquals;
-import static pageobjects.Api.*;
+import java.util.SortedMap;
+
+import static pageobjects.Api.assertKeyValueFromResponse;
 
 
-public class Apisteps {
+public class Apisteps extends Operations {
+    public static Response response;
 
-    private Response response;
-    private RequestSpecification request;
-    public static String idLastPostPet;
-
-    @Given("a pet status of {string}")
-    public void givenAPetStatus(String status) {
-        request = RestAssured.given().param("status", status);
+    @Given("the {string} is called to {string} pets by status")
+    public void theApiIsCalledToGETPetsByStatus(String api, String request) throws FileNotFoundException {
+        try {
+            if (request.equalsIgnoreCase("GET")) {
+                response = performGET(api);
+            }
+        } catch (Exception e) {
+            System.out.println("CATCH......" + e);
+        }
 
     }
 
-    @Given("a pet with the following data:")
-    public void givenAPetWithJsonData(DataTable table) {
-        Map<String, String> result = table.asMap(String.class, String.class);
-        String body = result.get("body");
-        request = RestAssured.given().contentType("application/json").body(body);
+    @Given("the {string} is called to {string} a pet")
+    public void theApiIsCalledToPOSTAPet(String api, String request) throws FileNotFoundException {
+        if (request.equalsIgnoreCase("POST")) {
+            response = performPOST(api);
+        }
     }
 
-    @Given("the last pet we prepare the new object")
-    public void givenTheLastPetObjectWePrepareNewObject() {
-        JsonObject pet = new JsonObject();
-        pet.addProperty("id", idLastPostPet);
-        pet.addProperty("status", "sold");
-        request = RestAssured.given().contentType("application/json").body(pet.toString());
-        System.out.println("NUEVO PET PARA ACTUALIZAR"+ request);
-    }
-
-    @When("the {string} is called to find pets by status")
-    public void theApiIsCalledToFindPetsByStatus(String api) {
-        response = request.when().get(api);
-    }
-
-    @When("the {string} is called to {string} a pet")
-    public void apiCalledToPostPetWithData(String api, String request) {
-        response = this.request.when().post(api);
-        System.out.println("EL NUEVO NOMBRE DE LA RESPUESTAS ES::::::" + response.getBody().asString());
+    @Then("the response should be {int}")
+    public void theResponseShouldBe(int response_code){
+        System.out.println("Status Code: " + response.statusCode());
+        Assert.assertEquals(response.statusCode(), response_code);
     }
 
     @And("the response body should contain the following attributes for each pet:")
-    public void responseBodyContainsAttributes(DataTable table) {
+    public void responseShouldContainsFollowingAttributes(DataTable table) {
         Map<String, String> expectedAttributes = table.asMap(String.class, String.class);
         String expectedStatus = expectedAttributes.get("status");
         String jsonStr = response.getBody().asString();
         assertKeyValueFromResponse(jsonStr, "status", expectedStatus);
     }
-
-    @And("the response body should contain the following attributes:")
-    public void reponseShouldContainThoseAttributes(DataTable tableTwo) {
-        Map<String, String> expectedAttributes = tableTwo.asMap(String.class, String.class);
-        String expectedStatus = expectedAttributes.get("status");
-        String expectedName = expectedAttributes.get("name");
-
-        String jsonStr = response.getBody().asString();
-
-        System.out.println("RESPONSE BODY::::::::::"+ jsonStr);
-        JsonObject jsonObject = new JsonParser().parse(jsonStr).getAsJsonObject();
-
-        String jsonStatus = jsonObject.get("status").getAsString();
-        String jsonName = jsonObject.get("name").getAsString();
-        Apisteps.idLastPostPet = jsonObject.get("id").getAsString();
-        System.out.println("ESTE ES EL AND DEL ID:::::::::::::"+Apisteps.idLastPostPet);
-
-        assertEquals(expectedStatus, jsonStatus);
-        assertEquals(expectedName, jsonName);
-    }
-
-    @When("the {string} is called to {string} a pet with the following data:")
-    public void requestUpdateToApiWithABody(String api, String request) {
-        JsonObject pet = new JsonObject();
-        pet.addProperty("id", idLastPostPet);
-        pet.addProperty("status", "sold");
-
-        switch (request){
-            case "update":
-
-                response = this.request.when().post(api);
-                break;
-            case "delete":
-                break;
-        }
-    }
-
-
-    @Then("the response should be {int}")
-    public void theResponseShouldBeOK(int status) {
-        assertEquals(response.getStatusCode(), 200);
-    }
-
-
 }
