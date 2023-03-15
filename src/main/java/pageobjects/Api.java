@@ -13,13 +13,16 @@ public class Api {
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(json);
         JsonArray jsonArray = jsonElement.getAsJsonArray();
+
+        // For loop to iterate through the response body of the request to validate each pet has 'Available' Status
         for (JsonElement element : jsonArray) {
             JsonObject jsonObject = element.getAsJsonObject();
             if (jsonObject.has(key)) {
                 String actualStatus = jsonObject.get(key).getAsString();
                 assertEquals(actualStatus, value);
-                System.out.println("ASSERTION REALIZADO CORRECTAMENTE.");
+                // System.out.println("The pet object has a 'available' status");
             } else {
+                // We return the id of the pet if it doesn't have a 'status' key.
                 String id = jsonObject.get("id").getAsString();
                 fail("The'" + key + "' doesn't exist in json object.");
             }

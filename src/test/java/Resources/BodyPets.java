@@ -26,15 +26,13 @@ public class BodyPets {
         tag.put("name", "tag");
         tags.add(tag);
         addpet.put("tags", tags);
-
         addpet.put("status", "available");
 
-        System.out.println("ESTE DEBERIA SER NUESTRO OBJETO:::::::::::::::::::" + addpet);
         return addpet;
 
 
     }
-    public static HashMap<String, Object> updateAPet(Integer lastIdPet) {
+    public static HashMap<String, Object> updateAPet(long lastIdPet) {
         HashMap<String, Object> bodyRequest = new HashMap<String, Object>();
         bodyRequest.put("id", lastIdPet);
 
@@ -55,19 +53,11 @@ public class BodyPets {
         tag.put("name", "tag");
         tags.add(tag);
         bodyRequest.put("tags", tags);
-
         bodyRequest.put("status", "sold");
 
-        System.out.println("ESTE DEBERIA SER NUESTRO OBJETO:::::::::::::::::::" + bodyRequest);
         return bodyRequest;
 
 
     }
 
-
-//    public static HashMap<String, Object> deletePayload(String placeId) {
-//        HashMap<String, Object> deleteplacemap = new HashMap<String, Object>();
-//        deleteplacemap.put("place_id", placeId);
-//        return deleteplacemap;
-//        }
 }

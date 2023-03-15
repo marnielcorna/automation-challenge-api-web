@@ -11,7 +11,7 @@ This is a Java-based automation framework built using Selenium, Cucumber and Tes
 ### Instalation
 
 1. Clone the repository to your local machine:
-   >here the repo url
+   >https://github.com/marnielcorna/api-web-automation.git
 2. Import the project into your IDE.
 3. Run `mvn clean install` to install all the dependencies.
 4. Plugins: 

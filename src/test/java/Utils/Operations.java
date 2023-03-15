@@ -12,12 +12,12 @@ public class Operations {
     static Response response;
     RequestSpecification reqspec;
 
-    public Response performGET(String api) throws FileNotFoundException {
+    public Response performGET(String api, String status) throws FileNotFoundException {
         APIResources resourceAPI= APIResources.valueOf(api);
         reqspec = new BaseBuilder().placeSpecBuilder();
 
-        if(api.equalsIgnoreCase("PathForFindPets")) {
-            reqspec = RestAssured.given().spec(reqspec).params("status","available");
+        if(api.equalsIgnoreCase("PathForFindPetsByStatus")) {
+            reqspec = RestAssured.given().spec(reqspec).params("status",status);
         }
         response = reqspec.get(resourceAPI.getResource());
         return response;
@@ -35,7 +35,7 @@ public class Operations {
         return response;
     }
 
-    public Response performPUT(String api, Integer lastIdPet) throws FileNotFoundException {
+    public Response performPUT(String api, long lastIdPet) throws FileNotFoundException {
         APIResources resourceAPI= APIResources.valueOf(api);
 
         reqspec = new BaseBuilder().placeSpecBuilder();
@@ -44,9 +44,22 @@ public class Operations {
             reqspec = RestAssured.given().spec(reqspec).body(BodyPets.updateAPet(lastIdPet));
         }
         response = reqspec.put(resourceAPI.getResource()).then().extract().response();
-        System.out.println("RESPONSE DE OPERATIONS:" + response.getBody().asString());
         return response;
     }
+
+    public Response performDELETE(String api, long lastIdPet) throws FileNotFoundException {
+        APIResources resourceAPI= APIResources.valueOf(api);
+
+        reqspec = new BaseBuilder().placeSpecBuilder();
+
+        if(api.equalsIgnoreCase("PathToDeletePet")) {
+            reqspec = RestAssured.given().spec(reqspec);
+        }
+        response = reqspec.delete(resourceAPI.getResource()+lastIdPet).then().extract().response();
+
+        return response;
+    }
+
 
 
 

@@ -1,10 +1,10 @@
 package Resources;
 
 public enum APIResources {
-    PathForFindPets("/v2/pet/findByStatus"),
+    PathForFindPetsByStatus("/v2/pet/findByStatus"),
     PathForPostPet("/v2/pet"),
     PathForUpdateAPet("/v2/pet"),
-    PathToDeletePet("/");
+    PathToDeletePet("/v2/pet/");
 
     private String resource;
 

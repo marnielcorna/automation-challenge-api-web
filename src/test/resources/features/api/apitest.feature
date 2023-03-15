@@ -3,7 +3,7 @@ Feature: API testing
 
   @get_request
   Scenario:	Get available pets
-    Given the 'PathForFindPets' is called to 'GET' pets by status
+    Given the 'PathForFindPetsByStatus' is called to 'GET' pets by status 'available'
     Then the response should be 200
     And the response body should contain the following attributes for each pet:
       | status   | available   |
@@ -15,20 +15,19 @@ Feature: API testing
     And the response body should contain the status 'available'
 
 
-  @update_request @dos
+  @update_request
   Scenario:	Update pet status to sold
     Given the 'PathForUpdateAPet' is called to 'UPDATE' a pet
     Then the response should be 200
     And the response body should contain the status 'sold'
 
-##
-#  @delete_request @dos
-#  Scenario: Delete pet
-#    Given a pet of id 'id pet'
-#    When the api is called to 'delete' a pet with the following data:
-##      | "Id"      |	| "Id Pet" |
-#    Then the response should be 200
-#    And the response body should contain the following attributes:
-##      | "code" 	  | "200"      |
-##      | "type"    | "unknown"  |
-##      | "message" | "id"       |
+
+  @delete_request
+  Scenario: Delete pet
+    Given last updated pet
+    * the 'PathToDeletePet' is called to 'DELETE' a pet
+    Then the response should be 200
+    And the response body should contain the following attributes:
+      | code	  | 200      |
+      | type      | unknown  |
+      | message   | id       |
