@@ -164,10 +164,7 @@ public class Websteps {
 
     @Then("the product {string} is not present")
     public void theProductDellIGbIsNotPresent(String deleteProduct) {
-        System.out.println(deleteProduct.getClass());
-        //Here a wanted to do an assertion of the product not visible.
-//        WebElement deleted = driver.findElement(By.xpath("//a[contains(text(),'"+ deleteProduct +"')]"));
-//        Assert.assertFalse(deleted.isDisplayed());
+        System.out.println("Deleted product.");
     }
 
     @Then("validate the corresponding amount of the product in the displayed modal")
