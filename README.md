@@ -24,20 +24,3 @@ This is a Java-based automation framework built using Selenium, Cucumber and Tes
 3. The output report is located at: 
 `target/cucumber-html-reports/overview-features.html`
 
-## Structure of the project
-- src
-  - main
-    - java
-      - pageobjects
-- src
-  - java
-    - StepDefinitions
-      - Apisteps
-      - Websteps
-  - resources
-    - features
-      - api
-        - apitest.feature (`Scenarios`)
-      - web
-        - webtest.feature (`Scenarios`)
-        - 

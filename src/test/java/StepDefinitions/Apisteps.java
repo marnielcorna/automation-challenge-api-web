@@ -5,6 +5,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -44,7 +45,6 @@ public class Apisteps extends Operations {
         } else if (request.equalsIgnoreCase("DELETE")) {
             long lastIdPet = lastIdPetPosted;
             response = performDELETE(path, lastIdPet);
-            String body_res = response.getBody().asString();
         }
     }
 
@@ -102,4 +102,6 @@ public class Apisteps extends Operations {
 
         }
     }
+
+
 }

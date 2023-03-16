@@ -12,7 +12,6 @@ public class PropertiesReader {
 
     public PropertiesReader() {
         try {
-
             fis = new FileInputStream(filepath);
             pro = new Properties();
             pro.load(fis);
